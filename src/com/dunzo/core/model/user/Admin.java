@@ -28,4 +28,10 @@ public class Admin extends User {
         return detailsManager.getAllRiders();
     }
 
+    public String toString() {
+        return "AdminId      :" + this.id + "\n" +
+                "AdminName    :" + this.getName() + "\n" +
+                "phoneNumber  :" + this.getPhoneNumber() + "\n" +
+                "emailId      :" + this.getEmailID() + "\n";
+    }
 }

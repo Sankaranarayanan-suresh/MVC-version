@@ -103,4 +103,11 @@ public class Rider extends User {
     public List<Job> getAllJob(){
         return manager.getHistoryOfJobs(this.getPhoneNumber());
     }
+    public String toString() {
+        return "RiderId      :" + this.id + "\n" +
+                "RiderName    :" + this.getName() + "\n" +
+                "phoneNumber  :" + this.getPhoneNumber() + "\n" +
+                "emailId      :" + this.getEmailID() + "\n" +
+                "Ratings      :" + this.getRatings() + "\n";
+    }
 }

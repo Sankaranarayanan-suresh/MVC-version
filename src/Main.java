@@ -38,19 +38,22 @@ public class Main {
                     if (userPreference == 1) {
                         try {
                             customerUI = new CustomerUI((Customer) login.signUp("customer"), jobDataManager);
+                            System.out.println("\n\nSignUp Successful!!");
                         }catch (RuntimeException e){
                             System.out.println(e.getMessage());
+                            break ;
                         }
                     } else if (userPreference == 2) {
                         try {
-                            customerUI = new CustomerUI((Customer) login.signUp("customer"), jobDataManager);
+                            customerUI = new CustomerUI((Customer) login.signIn("customer"), jobDataManager);
+                            System.out.println("\n\nSignIn Successful!!");
                         }catch (RuntimeException e){
                             System.out.println(e.getMessage());
+                            break ;
                         }
                     } else {
                         break;
                     }
-                    assert customerUI != null;
                     customerUI.showMenu();
                     break;
                 case 2:

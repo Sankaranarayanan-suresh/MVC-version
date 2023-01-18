@@ -29,5 +29,11 @@ public class Customer extends User {
     public List<Job> getAllJob(){
        return manager.getHistoryOfJobs(this.getPhoneNumber());
     }
+    public String toString() {
+        return "customerId   :" + this.id + "\n" +
+                "customerName :" + this.getName() + "\n" +
+                "phoneNumber  :" + this.getPhoneNumber() + "\n" +
+                "emailId      :" + this.getEmailID() + "\n";
+    }
 
 }

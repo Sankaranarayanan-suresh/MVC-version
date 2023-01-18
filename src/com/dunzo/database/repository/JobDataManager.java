@@ -98,8 +98,8 @@ public class JobDataManager implements CustomerJobManager, RiderJobManager, JobP
         else if (objectDimension <= 2000)
             ratePerKm = 9;
         int pickUpPinCode = new Integer(pickUpCode);
-        int dropCode = new Integer(dropPincode);
-        return ((Math.abs(pickUpPinCode - dropCode)) * ratePerKm) + riderFee;
+        int dropPinCode = new Integer(dropPincode);
+        return ((Math.abs(pickUpPinCode - dropPinCode)) * ratePerKm) + riderFee;
     }
 
     private boolean checkObjectEligibility(String objectName) {
@@ -118,7 +118,7 @@ public class JobDataManager implements CustomerJobManager, RiderJobManager, JobP
 
     @Override
     public List<Job> getHistoryOfJobs(String phoneNumber) {
-        List<Job> allJobs = (List<Job>) database.getAll();
+        List<Job> allJobs = new ArrayList<>(database.getAll());
         List<Job> jobs = new ArrayList<>();
         for (Job job:allJobs){
             if (job.getCustomerNumber().equals(phoneNumber)){
@@ -127,8 +127,6 @@ public class JobDataManager implements CustomerJobManager, RiderJobManager, JobP
         }
         return jobs;
     }
-
-
     @Override
     public void cancelJob(Job job) {
         Job dbJob = database.get(job.jobID);

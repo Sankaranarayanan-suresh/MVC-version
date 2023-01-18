@@ -10,8 +10,11 @@ public interface UserDetailsManager {
     Collection<Rider> getAllRiders();
 
     Collection<User> getAllUsers();
+
     User getUser(String phoneNumber);
+
     boolean checkUserCredentials(String phoneNumber, String password);
-    boolean checkUser(String phoneNumber);
+
+    boolean userExists(String phoneNumber);
 }
 

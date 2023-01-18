@@ -27,7 +27,7 @@ public class UserDataManager implements AdminUserManager, UserDetailsManager, Ri
     @Override
     public void approveRider(Rider rider) {
         User user = database.get(rider.getPhoneNumber());
-        if (user == null || !(user instanceof Rider)) return;
+        if (!(user instanceof Rider)) return;
         Rider dbRider = (Rider) user;
         dbRider.setStatus(RiderStatus.APPROVED);
         database.update(dbRider);
@@ -78,13 +78,14 @@ public class UserDataManager implements AdminUserManager, UserDetailsManager, Ri
     }
 
     @Override
-    public boolean checkUser(String phoneNumber) {
+    public boolean userExists(String phoneNumber) {
         for (User user : database.getAll()) {
             if (user.getPhoneNumber().equals(phoneNumber)) {
-                return false;
+                return true;
             }
+
         }
-        return true;
+        return false;
     }
 
     public Customer addNewCustomer(String name, String phoneNumber, String password, String emailID, CustomerJobManager manager) {

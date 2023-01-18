@@ -31,21 +31,27 @@ public class Utils {
         }
     }
 
-    public static double getRatings() {
+    public static double getRatings() throws RatingErrorException {
         Scanner sc = new Scanner(System.in);
-        try {
-            double rating = sc.nextDouble();
-            if (rating > 5) {
-                throw new RatingErrorException("Ratings should be between 0-5");
+        double rating = 0;
+            try {
+                rating = sc.nextDouble();
+                if (rating > 5) {
+                    throw new RatingErrorException("Ratings should be between 0-5");
+                }
+            }catch (InputMismatchException e){
+                System.out.println("Enter a valid input.");
+                getRatings();
             }
             return rating;
-        } catch (InputMismatchException e) {
-            System.err.println("Enter valid option!!.");
-            return getRatings();
-        } catch (RatingErrorException e) {
-            System.err.println(e.getMessage());
-            return getRatings();
-        }
+    }
+    public static String getPincode(){
+        Scanner sc = new Scanner(System.in);
+        String pincode = sc.nextLine();
+        if (!pincode.matches("[6]{1}[0-9]{5}"))
+            throw new RuntimeException("pincode is not valid!");
+        return pincode;
+
     }
 
     public static double getAmount() {

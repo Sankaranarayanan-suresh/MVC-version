@@ -1,8 +1,6 @@
 package com.dunzo.database.model;
 
 import com.dunzo.core.model.job.Job;
-import com.dunzo.core.model.user.User;
-
 import java.util.Collection;
 import java.util.HashMap;
 

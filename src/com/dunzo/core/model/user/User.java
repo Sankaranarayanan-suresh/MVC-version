@@ -19,7 +19,7 @@ public abstract class User {
             throw new RuntimeException("Phone number is not valid");
         }
         if(!emailID.matches(".*@.*\\.(com|org)")) {
-            throw new RuntimeException("Email ID is not valid");
+            throw new RuntimeException("Email ID is not valid!!!\n Sin-Up using correct credentials");
         }
         this.id = id;
         this.name = name;
@@ -28,7 +28,6 @@ public abstract class User {
         this.emailID = emailID;
         this.notifications = new ArrayList<>();
     }
-
     public String getName() {
         return name;
     }

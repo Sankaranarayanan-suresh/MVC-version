@@ -30,7 +30,6 @@ public class UserDatabase implements DatabaseFunctions<User> {
             throw new RuntimeException("User Already Exists");
         }
         this.userData.put(userData.getPhoneNumber(),userData);
-        System.out.println(this.userData.size());
     }
 
     @Override

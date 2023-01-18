@@ -85,5 +85,16 @@ public class Job {
     public double getPrice() {
         return price;
     }
+    public String toString() {
+        return "objectName         :" + objectName + '\n' +
+                "objectDescription :" + objectDescription + '\n' +
+                "objectDimension   :" + objectDimension + '\n' +
+                "objectState       :" + jobState + '\n' +
+                "customerNumber    :" + customerNumber + '\n' +
+                "riderNumber       :" + riderNumber + '\n' +
+                "pickupLocation    :" + pickUpAddress + '\n' +
+                "price             :" + price + '\n'+
+                "dropLocation      :" + dropAddress;
+    }
 
 }
